@@ -96,7 +96,7 @@ open class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerD
     
     fileprivate var displayLink: CADisplayLink?
     
-    fileprivate var longPress: UILongPressGestureRecognizer?
+    public var longPress: UILongPressGestureRecognizer?
     
     fileprivate var panGesture: UIPanGestureRecognizer?
     
@@ -397,7 +397,7 @@ open class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerD
     }
     
     // long press gesture
-    internal func handleLongPress(_ longPress: UILongPressGestureRecognizer!) {
+    open func handleLongPress(_ longPress: UILongPressGestureRecognizer!) {
         let location = longPress.location(in: collectionView)
         var indexPath: IndexPath? = collectionView?.indexPathForItem(at: location)
         
@@ -438,7 +438,7 @@ open class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerD
     }
     
     // pan gesture
-    func handlePanGesture(_ pan: UIPanGestureRecognizer!) {
+    open func handlePanGesture(_ pan: UIPanGestureRecognizer!) {
         panTranslation = pan.translation(in: collectionView!)
         if let cellFakeView = cellFakeView,
             let fakeCellCenter = fakeCellCenter,
